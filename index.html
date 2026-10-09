@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CursorJS - Aprenda JavaScript com desafios</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">{ }</span><div><b>Cursor<span>JS</span></b><small>Aprenda JavaScript praticando</small></div></div>
+    <nav class="tabs">
+      <button class="tab active" data-view="challenges">Desafios</button>
+      <button class="tab" data-view="dashboard">Painel</button>
+    </nav>
+    <div class="stats">
+      <div class="stat"><small>Rank</small><b id="rank">Iniciante</b></div>
+      <div class="stat"><small>XP</small><b id="xp">0</b></div>
+      <div class="stat"><small>Concluídos</small><b id="doneCount">0/50</b></div>
+    </div>
+  </header>
+
+  <div class="xpbar"><div id="xpFill"></div></div>
+
+  <main id="view-challenges" class="layout">
+    <aside class="sidebar"><div id="list"></div></aside>
+
+    <section class="workspace">
+      <div class="card">
+        <div class="ch-head">
+          <span id="chBadge" class="badge"></span>
+          <h2 id="chTitle"></h2>
+          <span id="chStatus" class="status"></span>
+        </div>
+        <p id="chDesc" class="desc"></p>
+      </div>
+
+      <div class="card editor-card">
+        <div class="toolbar">
+          <button id="btnRun" class="btn primary">Executar testes</button>
+          <button id="btnHint" class="btn">Dica</button>
+          <button id="btnReview" class="btn">Revisar com IA</button>
+          <button id="btnSol" class="btn warn">Ver solução</button>
+          <button id="btnReset" class="btn ghost">Resetar</button>
+          <span class="hintinfo">Dicas usadas: <b id="hintCount">0</b></span>
+        </div>
+        <div class="editor"><div id="gutter" class="gutter"></div><textarea id="code" spellcheck="false" autocapitalize="off"></textarea></div>
+      </div>
+
+      <div class="card">
+        <h3>Resultados</h3>
+        <div id="results" class="results"><p class="muted">Execute os testes para ver os resultados.</p></div>
+        <h3>Console</h3>
+        <pre id="console" class="console"></pre>
+      </div>
+
+      <div class="nav-btns">
+        <button id="btnPrev" class="btn">&larr; Anterior</button>
+        <button id="btnNext" class="btn primary">Próximo &rarr;</button>
+      </div>
+    </section>
+
+    <aside class="chat">
+      <div class="chat-head"><span class="ai-dot"></span><b>Tutor IA</b><small>local · offline</small></div>
+      <div id="msgs" class="msgs"></div>
+      <div class="chips">
+        <button data-q="dica">Dica</button>
+        <button data-q="explicar">Explicar</button>
+        <button data-q="revisar">Revisar código</button>
+        <button data-q="proximo">Próximo passo</button>
+      </div>
+      <form id="chatForm" class="chat-form"><input id="chatInput" placeholder="Pergunte sobre JavaScript..." autocomplete="off"><button class="btn primary">Enviar</button></form>
+    </aside>
+  </main>
+
+  <main id="view-dashboard" class="dash hidden">
+    <div class="grid">
+      <div class="card"><h3>Progresso geral</h3><canvas id="chDonut" width="300" height="240"></canvas></div>
+      <div class="card"><h3>Conclusão por nível</h3><canvas id="chBars" width="420" height="240"></canvas></div>
+      <div class="card"><h3>XP acumulado por desafio</h3><canvas id="chLine" width="420" height="240"></canvas></div>
+    </div>
+    <div class="card"><h3>Mapa dos 50 desafios</h3><div id="map" class="map"></div></div>
+    <div class="card"><h3>Conquistas</h3><div id="badges" class="achv"></div></div>
+    <button id="btnWipe" class="btn ghost">Apagar progresso</button>
+  </main>
+
+  <footer class="footer">CursorJS &copy; <span id="year"></span> &middot; Desenvolvido por  <b id="dev"></b></footer>
+
+  <script src="challenges.js"></script>
+  <script src="ai.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
